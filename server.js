@@ -1,12 +1,10 @@
 const express = require('express');
 const app = express();
-const router = express.Router();
+const cors = require('cors');
 
-const port = 3000;
-
-app.get('/', (req, res) => {
-    res.send('Sheena Hamilton');
-});
+const port = 8080;
+app.use(cors());
+app.use('/', require('./routes'));
 
 app.listen(process.env.port || port);
 console.log('Webserver listening on ' + (process.env.port || port));
